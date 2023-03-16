@@ -15,14 +15,14 @@ def get_training_dataset(data_2021_path, data_2022_path):
         for line in tqdm(data_2021):
             f.write(convert_date(line))
         f.write('\n')
-        for line in tqdm(data_2022[1:len(data_2022)//2]):
+        for line in tqdm(data_2022[1:589053]): # 589054 is index for first 07 2022 data
             f.write(convert_date(line))
 
 def get_validation_dataset(data_2022_path):
     with open('validation_dataset.csv', 'w') as f:
         data_2022 = open(data_2022_path, 'r').readlines()
 
-        for line in tqdm(data_2022[len(data_2022)//2:]):
+        for line in tqdm(data_2022[589053:]):
             f.write(convert_date(line))
 
 def get_testing_dataset(data_2023_path):
